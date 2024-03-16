@@ -1,10 +1,10 @@
-const router = require("mongoose").Router();
+const router = require("express").Router();
 const authenticate = require("../middleware/authenticateToken");
 const postcontroller = require("../controllers/postController");
 
 router.get("/", postcontroller.getAllBlogsPost);
-router.get("/:id", postcontroller.getBlogsPostById);
-router.get("/myblog", authenticate, postcontroller.getMyBlogPost);
+router.get("/user/myblog", authenticate, postcontroller.getMyBlogPost);
+router.get("/:blogId", postcontroller.getBlogsPostById);
 
 router.post("/", authenticate, postcontroller.addBlogPost);
 

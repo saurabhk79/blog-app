@@ -12,7 +12,7 @@ const getAllBlogsPost = async (req, res) => {
 
 const getMyBlogPost = async (req, res) => {
   try {
-    const userId = req.user;
+    const {userId} = req.user;
     const userBlogs = await postservice.getUserBlogs(userId);
 
     return res.status(200).json(userBlogs);
@@ -23,7 +23,7 @@ const getMyBlogPost = async (req, res) => {
 
 const getBlogsPostById = async (req, res) => {
     try {
-      const blogId = req.params;
+      const {blogId} = req.params;
       const userBlogs = await postservice.getBlogById(blogId);
   
       return res.status(200).json(userBlogs);
@@ -34,7 +34,7 @@ const getBlogsPostById = async (req, res) => {
 
 const addBlogPost = async (req, res) => {
   try {
-    const userId = req.user;
+    const {userId} = req.user;
     const body = req.body;
 
     const blog = await postservice.addBlog(userId, body);
@@ -47,7 +47,7 @@ const addBlogPost = async (req, res) => {
 
 const updateBlogPost = async (req, res) => {
   try {
-    const userId = req.user;
+    const {userId} = req.user;
     const updatedData = req.body;
     const blogId = req.params.id;
 
@@ -67,7 +67,7 @@ const updateBlogPost = async (req, res) => {
 
 const deleteBlogPost = async (req, res) => {
   try {
-    const userId = req.user;
+    const {userId} = req.user;
     const blogId = req.params.id;
     
     const blog = await postservice.deleteBlog(userId, blogId);

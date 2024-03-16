@@ -1,4 +1,4 @@
-const router = require("mongoose").Router();
+const router = require("express").Router();
 const authenticate = require("../middleware/authenticateToken");
 const commentcontroller = require("../controllers/commentController");
 
