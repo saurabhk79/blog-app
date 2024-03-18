@@ -1,3 +1,4 @@
+import LoginComponent from "./components/LoginComponent"
 
 export function Home() {
   return (
@@ -7,7 +8,7 @@ export function Home() {
 
 export function Login() {
   return (
-    <div>Login</div>
+    <LoginComponent />
   )
 }
 
