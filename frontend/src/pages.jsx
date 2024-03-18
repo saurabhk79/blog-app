@@ -1,8 +1,9 @@
 import LoginComponent from "./components/LoginComponent"
+import RegisterComponent from "./components/RegisterComponent"
 
 export function Home() {
   return (
-    <div>Home</div>
+    <RegisterComponent />
   )
 }
 
