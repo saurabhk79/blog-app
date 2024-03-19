@@ -1,13 +1,16 @@
-import {useSelector} from "react-redux"
-// import {makeAuthRegister} from "../../services/auth"
+import Footer from "../Footer";
+import Hero from "../Hero";
+import Navbar from "../Navbar";
+import styles from "./home.module.css";
 
 const HomeComponent = () => {
-    const user = useSelector((state)=> state.auth);
-    console.log(user);
+  return (
+    <div className={styles.home}>
+      <Navbar />
+      <Hero />
+      <Footer />
+    </div>
+  );
+};
 
-    return (
-    <div>HomeComponent</div>
-  )
-}
-
-export default HomeComponent
+export default HomeComponent;
