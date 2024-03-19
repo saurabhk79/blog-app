@@ -3,13 +3,22 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { useSnackbar } from "notistack";
 
+import { useDispatch } from "react-redux";
+import { loginUser } from "../../services/auth";
+
 const LoginComponent = () => {
   const { register, handleSubmit } = useForm();
   const { enqueueSnackbar } = useSnackbar();
 
-  const handleForm = (data) => {
+  const dispatch = useDispatch();
+
+  const handleForm = async (data) => {
     console.log(data);
-    enqueueSnackbar("Working!", {variant : "success"});
+
+    const res = await dispatch(loginUser(data));
+    console.log(res);
+
+    enqueueSnackbar("Working!", { variant: "success" });
   };
 
   return (
