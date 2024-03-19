@@ -1,9 +1,10 @@
+import HomeComponent from "./components/HomeComponent"
 import LoginComponent from "./components/LoginComponent"
 import RegisterComponent from "./components/RegisterComponent"
 
 export function Home() {
   return (
-    <RegisterComponent />
+    <HomeComponent />
   )
 }
 
@@ -16,6 +17,6 @@ export function Login() {
 
 export function Register() {
   return (
-    <div>Register</div>
+    <RegisterComponent />
   )
 }
