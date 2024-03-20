@@ -3,7 +3,7 @@ const authenticate = require("../middleware/authenticateToken");
 const postcontroller = require("../controllers/postController");
 
 router.get("/", postcontroller.getAllBlogsPost);
-router.get("/user/myblog", authenticate, postcontroller.getMyBlogPost);
+router.get("/user/blog", authenticate, postcontroller.getMyBlogPost);
 router.get("/:blogId", postcontroller.getBlogsPostById);
 
 router.post("/", authenticate, postcontroller.addBlogPost);
