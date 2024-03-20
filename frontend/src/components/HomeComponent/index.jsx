@@ -1,3 +1,4 @@
+import BlogSection from "../BlogSection";
 import Footer from "../Footer";
 import Hero from "../Hero";
 import Navbar from "../Navbar";
@@ -8,6 +9,7 @@ const HomeComponent = () => {
     <div className={styles.home}>
       <Navbar />
       <Hero />
+      <BlogSection />
       <Footer />
     </div>
   );
