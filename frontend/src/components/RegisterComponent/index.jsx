@@ -1,17 +1,37 @@
 import styles from "./register.module.css";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
+
+import { registerUser } from "../../services/auth";
+import { useDispatch } from "react-redux";
 
 const RegisterComponent = () => {
   const { register, handleSubmit } = useForm();
   const { enqueueSnackbar } = useSnackbar();
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const handleForm = (data) => {
     console.log(data);
-    enqueueSnackbar("Working!", {variant : "success"});
+
+    dispatch(registerUser(data))
+      .then((data) => {
+        console.log(data);
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);
+        enqueueSnackbar("Registered", { variant: "success" });
+      })
+      .catch((err) => {
+        console.log(err);
+        enqueueSnackbar("Some error occurred! Refresh and try again!", {
+          variant: "error",
+        });
+      });
   };
-  
+
   return (
     <div className={styles.register}>
       <div className={styles.registerCard}>
@@ -31,7 +51,11 @@ const RegisterComponent = () => {
 
           <label htmlFor="password-input">
             Password:
-            <input type="password" id="password-input" {...register("password")} />
+            <input
+              type="password"
+              id="password-input"
+              {...register("password")}
+            />
           </label>
 
           <button>Register</button>

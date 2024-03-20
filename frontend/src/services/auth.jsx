@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { config } from "../config";
+import axios from "axios";
 
 const initialState = {
   userId: "",
@@ -13,12 +14,11 @@ export const registerUser = createAsyncThunk(
   "users/register",
   async (userData, thunkAPI) => {
     try {
-      const res = await fetch(config.API_BASE_URL + "auth/register", {
-        userData,
+      const res = await axios.post(config.API_BASE_URL + "auth/register", {
+        ...userData,
       });
-      const data = res.json();
 
-      return data;
+      return res.data;
     } catch (error) {
       console.log(error);
       return thunkAPI.rejectWithValue(
@@ -32,16 +32,8 @@ export const loginUser = createAsyncThunk(
   "users/login",
   async (userData, thunkAPI) => {
     try {
-      const res = await fetch(config.API_BASE_URL + "auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      });
-      const data = res.json();
-
-      return data;
+      const res = await axios.post(config.API_BASE_URL + "auth/login", {...userData});
+      return res.data;
     } catch (error) {
       console.log(error);
       return thunkAPI.rejectWithValue(
@@ -87,7 +79,7 @@ const auth = createSlice({
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload;
+        state.error = "An error occured!";
         state.isLogged = false;
       });
   },

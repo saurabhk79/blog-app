@@ -1,6 +1,6 @@
 import styles from "./login.module.css";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
 
 import { useDispatch } from "react-redux";
@@ -11,13 +11,25 @@ const LoginComponent = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleForm = async (data) => {
     console.log(data);
 
-    const res = await dispatch(loginUser(data));
-    console.log(res);
-
+    dispatch(loginUser(data))
+    .then((data) => {
+      console.log(data);
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+      enqueueSnackbar("Registered", { variant: "success" });
+    })
+    .catch((err) => {
+      console.log(err);
+      enqueueSnackbar("Some error occurred! Refresh and try again!", {
+        variant: "error",
+      });
+    });
     enqueueSnackbar("Working!", { variant: "success" });
   };
 
