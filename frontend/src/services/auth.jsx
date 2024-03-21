@@ -5,6 +5,7 @@ import axios from "axios";
 
 const initialState = {
   userId: "",
+  token: "",
   isLogged: false,
   loading: false,
   error: null,
@@ -58,6 +59,7 @@ const auth = createSlice({
     builder
       .addCase(loginUser.fulfilled, (state, action) => {
         state.userId = action.payload.userId;
+        state.token = action.payload.token;
         state.error = null;
         state.isLogged = true;
         state.loading = false;
