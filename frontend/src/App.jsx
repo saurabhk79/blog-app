@@ -1,7 +1,7 @@
 import "./App.css";
 
 import { Routes, Route } from "react-router-dom";
-import {Home, Login, Register} from "./pages";
+import {EditorPage, Home, Login, Register} from "./pages";
 
 const App = () => {
   return (
@@ -10,6 +10,8 @@ const App = () => {
       <Routes>
         <Route path="/login" element={<Login />}  />
         <Route path="/register" element={<Register />}  />
+        <Route path="/editor" element={<EditorPage />}  />
+
         <Route path="/" element={<Home />}  />
       </Routes>
     </div>

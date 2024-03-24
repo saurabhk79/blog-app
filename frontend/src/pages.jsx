@@ -1,22 +1,20 @@
-import HomeComponent from "./components/HomeComponent"
-import LoginComponent from "./components/LoginComponent"
-import RegisterComponent from "./components/RegisterComponent"
+import Editor from "./components/Editor";
+import HomeComponent from "./components/HomeComponent";
+import LoginComponent from "./components/LoginComponent";
+import RegisterComponent from "./components/RegisterComponent";
 
 export function Home() {
-  return (
-    <HomeComponent />
-  )
+  return <HomeComponent />;
 }
 
 export function Login() {
-  return (
-    <LoginComponent />
-  )
+  return <LoginComponent />;
 }
 
-
 export function Register() {
-  return (
-    <RegisterComponent />
-  )
+  return <RegisterComponent />;
+}
+
+export function EditorPage() {
+  return <Editor />;
 }
