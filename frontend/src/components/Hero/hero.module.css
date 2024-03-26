@@ -1,0 +1,15 @@
+.hero {
+    height: 250px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.hero h1 {
+    font-size: 48px;
+    letter-spacing: 8px;
+    color: var(--color-primary);
+    margin-bottom: 12px;
+}
