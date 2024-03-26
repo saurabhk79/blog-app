@@ -11,7 +11,10 @@ export default function Editor() {
   };
   return (
     <div className={styles.editorPage}>
-        <input type="text" placeholder="Title here..."/>
+      <div className={styles.back}>
+        <h2>{"<-"}</h2>
+      </div>
+      <input type="text" placeholder="Title here..." />
       <div>
         <BundledEditor
           onInit={(evt, editor) => (editorRef.current = editor)}
@@ -40,7 +43,7 @@ export default function Editor() {
               "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
           }}
         />
-        <button onClick={log}>Log editor content</button>
+        <button className={styles.save} onClick={log}>Save</button>
       </div>
     </div>
   );
