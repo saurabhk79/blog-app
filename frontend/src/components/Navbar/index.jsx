@@ -5,9 +5,10 @@ const Navbar = () => {
     <nav className={styles.nav}>
       <h1>Blogish</h1>
 
-      <div className="nav-opts">
-        <p>User</p>
+      <div className={styles.navOpts}>
+        <button>My blogs</button>
         <button>Logout</button>
+        <p>User</p>
       </div>
     </nav>
   );

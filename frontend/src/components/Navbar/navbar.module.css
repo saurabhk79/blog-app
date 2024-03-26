@@ -1,0 +1,29 @@
+.nav {
+    height: 60px;
+    padding: 0 18px;
+    display: flex;
+
+    background-color: var(--color-primary);
+    color: var(--color-bgc);
+
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navOpts {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+}
+
+.navOpts button {
+    padding: 3px 12px;
+
+    color: var(--color-primary);
+    background-color: var(--color-bgc);
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
