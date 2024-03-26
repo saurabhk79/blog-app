@@ -1,0 +1,19 @@
+.card {
+    margin: 12px;
+    background-color: white;
+    padding: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.card > b {
+    display: block;
+    text-align: right;
+    font-size: 10px;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
