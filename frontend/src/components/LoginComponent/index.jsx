@@ -17,19 +17,19 @@ const LoginComponent = () => {
     console.log(data);
 
     dispatch(loginUser(data))
-    .then((data) => {
-      console.log(data);
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
-      enqueueSnackbar("Registered", { variant: "success" });
-    })
-    .catch((err) => {
-      console.log(err);
-      enqueueSnackbar("Some error occurred! Refresh and try again!", {
-        variant: "error",
+      .then((data) => {
+        console.log(data);
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+        enqueueSnackbar("Registered", { variant: "success" });
+      })
+      .catch((err) => {
+        console.log(err);
+        enqueueSnackbar("Some error occurred! Refresh and try again!", {
+          variant: "error",
+        });
       });
-    });
     enqueueSnackbar("Working!", { variant: "success" });
   };
 
@@ -40,21 +40,23 @@ const LoginComponent = () => {
 
         <h4>Welcome back!</h4>
         <form className={styles.form} onSubmit={handleSubmit(handleForm)}>
-          <label htmlFor="email-input">
-            Email:
+          <div>
+            <label htmlFor="email-input">Email:</label> <br />
             <input type="text" id="email-input" {...register("email")} />
-          </label>
+          </div>
 
-          <label htmlFor="password-input">
-            Password:
+          <div>
+            <label htmlFor="password-input">Password:</label> <br />
             <input
               type="password"
               id="password-input"
               {...register("password")}
             />
-          </label>
+          </div>
 
-          <button>Login</button>
+          <div className={styles.centered}>
+            <button>Login</button>
+          </div>
         </form>
 
         <p className={styles.switch}>

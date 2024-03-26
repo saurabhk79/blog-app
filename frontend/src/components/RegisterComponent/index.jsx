@@ -58,7 +58,9 @@ const RegisterComponent = () => {
             />
           </label>
 
+          <div className={styles.centered}>
           <button>Register</button>
+          </div>
         </form>
 
         <p className={styles.switch}>
