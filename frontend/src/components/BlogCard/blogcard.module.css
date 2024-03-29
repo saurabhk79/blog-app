@@ -5,6 +5,8 @@
     border-radius: 12px;
     cursor: pointer;
 
+    display: block;
+
     transition: all 0.2s ease-in-out;
 }
 
@@ -16,4 +18,24 @@
 
 .card:hover {
     transform: translateY(-8px);
+}
+
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.centered > button {
+    padding: 10px 36px;
+    border: none;
+    outline: none;
+
+    background-color: var(--color-primary);
+    color: var(--color-bgc);
+
+    border-radius: 12px;
 }

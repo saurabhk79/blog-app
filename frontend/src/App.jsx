@@ -1,7 +1,7 @@
 import "./App.css";
 
 import { Routes, Route } from "react-router-dom";
-import {EditorPage, Home, Login, Register} from "./pages";
+import {BlogPage, EditorPage, Home, Login, Register} from "./pages";
 
 const App = () => {
   return (
@@ -11,6 +11,7 @@ const App = () => {
         <Route path="/login" element={<Login />}  />
         <Route path="/register" element={<Register />}  />
         <Route path="/editor" element={<EditorPage />}  />
+        <Route path="/blog/:id" element={<BlogPage />}  />
 
         <Route path="/" element={<Home />}  />
       </Routes>

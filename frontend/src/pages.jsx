@@ -1,3 +1,4 @@
+import Blog from "./components/Blog";
 import Editor from "./components/Editor";
 import HomeComponent from "./components/HomeComponent";
 import LoginComponent from "./components/LoginComponent";
@@ -18,3 +19,8 @@ export function Register() {
 export function EditorPage() {
   return <Editor />;
 }
+
+export function BlogPage() {
+  return <Blog />;
+}
+

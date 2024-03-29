@@ -25,7 +25,7 @@ const blogApi = createApi({
       query: () => "/user/blog",
     }),
     getBlogById: builder.query({
-      query: (id) => "/" + toString(id),
+      query: (id) => "/" + id,
     }),
 
     makeBlog: builder.mutation({
