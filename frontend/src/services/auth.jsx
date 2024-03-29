@@ -15,7 +15,7 @@ export const registerUser = createAsyncThunk(
   "users/register",
   async (userData, thunkAPI) => {
     try {
-      const res = await axios.post(config.API_BASE_URL + "auth/register", {
+      const res = await axios.post(config.API_BASE_URL + "/auth/register", {
         ...userData,
       });
 
@@ -33,7 +33,7 @@ export const loginUser = createAsyncThunk(
   "users/login",
   async (userData, thunkAPI) => {
     try {
-      const res = await axios.post(config.API_BASE_URL + "auth/login", {...userData});
+      const res = await axios.post(config.API_BASE_URL + "/auth/login", {...userData});
       return res.data;
     } catch (error) {
       console.log(error);
@@ -60,7 +60,7 @@ const auth = createSlice({
       .addCase(loginUser.fulfilled, (state, action) => {
         state.userId = action.payload.userId;
         state.token = action.payload.token;
-        state.error = null;
+        state.error = "nullweb";
         state.isLogged = true;
         state.loading = false;
       })
