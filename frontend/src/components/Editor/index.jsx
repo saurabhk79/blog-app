@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import BundledEditor from "../../BundledEditor";
 import styles from "./editor.module.css";
 import { useMakeBlogMutation } from "../../services/blog";
+import { Link } from "react-router-dom";
 
 export default function Editor() {
   const editorRef = useRef(null);
@@ -21,9 +22,9 @@ export default function Editor() {
 
   return (
     <div className={styles.editorPage}>
-      <div className={styles.back}>
+      <Link to={"/user/blog"} className={styles.back}>
         <h2>{"<-"}</h2>
-      </div>
+      </Link>
       <input
         type="text"
         placeholder="Title here..."

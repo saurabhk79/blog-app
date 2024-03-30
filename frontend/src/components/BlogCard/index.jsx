@@ -8,7 +8,6 @@ const BlogCard = ({ data, isMyBlog = false }) => {
   return (
     <div className={styles.card}>
       <h3>{data.title}</h3>
-      <p>{data.content.slice(0, 24)}...</p>
 
       <div className={styles.centered}>
         <button onClick={() => navigate(`/comment/${data._id}`)}>
@@ -18,8 +17,8 @@ const BlogCard = ({ data, isMyBlog = false }) => {
       </div>
 
       {isMyBlog && (
-        <div className={styles.isMyBlog}>
-          <button>Delete</button>
+        <div className={styles.centered}>
+          <button className={styles.delete}>Delete</button>
         </div>
       )}
     </div>

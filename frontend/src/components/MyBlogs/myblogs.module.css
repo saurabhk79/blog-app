@@ -1,0 +1,29 @@
+.myblogs {
+    background-color: var(--color-bgc);
+    min-height: 100vh;
+}
+
+
+.back h2 {
+    color: var(--color-bgc);
+    background-color: var(--color-primary);
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.create {
+    text-align: center;
+    display: block;
+    padding: 12px 32px;
+    color: white;
+    background-color: #124559;
+    border-radius: 12px;
+    margin: 0 12px;
+    margin-top: 16px;
+}

@@ -10,8 +10,13 @@ const MyBlogs = () => {
   console.log(data);
   return (
     <div className={styles.myblogs}>
+      <Link to={"/"} className={styles.back}>
+        <h2>{"<-"}</h2>
+      </Link>
       <h1>MyBlogs</h1>
-      <Link to={"/editor"} className={styles.create}>Create Blog +</Link>
+      <Link to={"/editor"} className={styles.create}>
+        Create Blog +
+      </Link>
 
       {!data.length ? (
         <div className={styles.nothing}>No blogs found!</div>

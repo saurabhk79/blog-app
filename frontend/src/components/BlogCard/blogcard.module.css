@@ -39,3 +39,7 @@
 
     border-radius: 12px;
 }
+
+.delete {
+    background-color: rgb(255, 22, 22) !important;
+}
