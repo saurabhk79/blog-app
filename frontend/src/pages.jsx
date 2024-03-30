@@ -3,6 +3,7 @@ import CommentSection from "./components/CommentSection";
 import Editor from "./components/Editor";
 import HomeComponent from "./components/HomeComponent";
 import LoginComponent from "./components/LoginComponent";
+import MyBlogs from "./components/MyBlogs";
 import RegisterComponent from "./components/RegisterComponent";
 
 export function Home() {
@@ -23,6 +24,10 @@ export function EditorPage() {
 
 export function BlogPage() {
   return <Blog />;
+}
+
+export function MyBlogsPage() {
+  return <MyBlogs />;
 }
 
 export function CommentPage() {

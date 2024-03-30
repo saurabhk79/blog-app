@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import styles from "./blogcard.module.css";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const BlogCard = ({ data }) => {
+const BlogCard = ({ data, isMyBlog = false }) => {
   const navigate = useNavigate();
 
   return (
@@ -11,9 +11,17 @@ const BlogCard = ({ data }) => {
       <p>{data.content.slice(0, 24)}...</p>
 
       <div className={styles.centered}>
-        <button onClick={() => navigate(`/comment/${data._id}`)}>Comments</button>
+        <button onClick={() => navigate(`/comment/${data._id}`)}>
+          Comments
+        </button>
         <button onClick={() => navigate(`/blog/${data._id}`)}>Show blog</button>
       </div>
+
+      {isMyBlog && (
+        <div className={styles.isMyBlog}>
+          <button>Delete</button>
+        </div>
+      )}
     </div>
   );
 };

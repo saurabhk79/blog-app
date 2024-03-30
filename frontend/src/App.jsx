@@ -7,6 +7,7 @@ import {
   EditorPage,
   Home,
   Login,
+  MyBlogsPage,
   Register,
 } from "./pages";
 
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/editor" element={<EditorPage />} />
         <Route path="/blog/:id" element={<BlogPage />} />
         <Route path="/comment/:blogId" element={<CommentPage />} />
+        <Route path="/user/blog" element={<MyBlogsPage />} />
 
         <Route path="/" element={<Home />} />
       </Routes>
