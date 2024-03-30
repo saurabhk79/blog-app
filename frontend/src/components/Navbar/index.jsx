@@ -10,7 +10,6 @@ const Navbar = () => {
       <div className={styles.navOpts}>
         <button onClick={() => navigate("/user/blog")}>My blogs</button>
         <button>Logout</button>
-        <p>User</p>
       </div>
     </nav>
   );
