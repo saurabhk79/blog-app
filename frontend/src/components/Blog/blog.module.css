@@ -1,0 +1,17 @@
+.commentsection {
+    background-color: var(--color-bgc);
+}
+
+.back h2 {
+    color: var(--color-bgc);
+    background-color: var(--color-primary);
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+

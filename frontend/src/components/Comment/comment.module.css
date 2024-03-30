@@ -1,0 +1,15 @@
+.comment {
+    margin: 12px;
+    background-color: white;
+    padding: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+
+    display: block;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.comment:hover {
+    transform: translateY(-8px);
+}
