@@ -9,10 +9,7 @@ const blogApi = createApi({
     baseUrl: config.API_BASE_URL + "/blog",
     prepareHeaders: (headers, { getState }) => {
       const token = selectToken(getState());
-
-      if (token) {
-        headers.set("Authorization", `Bearer ${token}`);
-      }
+      headers.set("Authorization", `Bearer ${token}`);
 
       return headers;
     },
@@ -29,10 +26,10 @@ const blogApi = createApi({
     }),
 
     makeBlog: builder.mutation({
-      query: (blogData) => ({
+      query: ({ title, content }) => ({
         url: "/",
         method: "POST",
-        body: blogData,
+        body: { title, content },
       }),
     }),
     updateBlog: builder.mutation({

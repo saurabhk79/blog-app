@@ -1,20 +1,35 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import BundledEditor from "../../BundledEditor";
 import styles from "./editor.module.css";
+import { useMakeBlogMutation } from "../../services/blog";
 
 export default function Editor() {
   const editorRef = useRef(null);
+  const [title, setTitle] = useState("");
+  // eslint-disable-next-line no-unused-vars
+  const [add, result] = useMakeBlogMutation();
+
   const log = () => {
     if (editorRef.current) {
-      console.log(editorRef.current.getContent());
+      let content = editorRef.current.getContent();
+      console.log(content);
+      const { data, isLoading } = add({ title, content });
+
+      console.log(data, isLoading);
     }
   };
+
   return (
     <div className={styles.editorPage}>
       <div className={styles.back}>
         <h2>{"<-"}</h2>
       </div>
-      <input type="text" placeholder="Title here..." />
+      <input
+        type="text"
+        placeholder="Title here..."
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
       <div>
         <BundledEditor
           onInit={(evt, editor) => (editorRef.current = editor)}
@@ -43,7 +58,13 @@ export default function Editor() {
               "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
           }}
         />
-        <button className={styles.save} onClick={log}>Save</button>
+        <button
+          className={styles.save}
+          onClick={log}
+          disabled={title.length === 0}
+        >
+          Save
+        </button>
       </div>
     </div>
   );
