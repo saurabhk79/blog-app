@@ -1,12 +1,24 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Comment from "../Comment";
 import styles from "./commentsection.module.css";
 import { useGetCommentsQuery } from "../../services/blog";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const CommentSection = () => {
   const params = useParams();
   const { data, isLoading } = useGetCommentsQuery(params.blogId);
 
+  const navigate = useNavigate();
+  const isLoggedIn = useSelector((state) => state.auth.isLogged);
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/login");
+      return;
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoggedIn]);
   if (isLoading) return <h1>Loading...</h1>;
 
   console.log(data);

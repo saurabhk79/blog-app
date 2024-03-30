@@ -1,14 +1,26 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import BundledEditor from "../../BundledEditor";
 import styles from "./editor.module.css";
 import { useMakeBlogMutation } from "../../services/blog";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Editor() {
   const editorRef = useRef(null);
   const [title, setTitle] = useState("");
   // eslint-disable-next-line no-unused-vars
   const [add, result] = useMakeBlogMutation();
+
+  const navigate = useNavigate();
+  const isLoggedIn = useSelector((state) => state.auth.isLogged);
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/login");
+      return;
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoggedIn]);
 
   const log = () => {
     if (editorRef.current) {
