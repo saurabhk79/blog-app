@@ -1,4 +1,5 @@
 import Blog from "./components/Blog";
+import CommentSection from "./components/CommentSection";
 import Editor from "./components/Editor";
 import HomeComponent from "./components/HomeComponent";
 import LoginComponent from "./components/LoginComponent";
@@ -22,5 +23,9 @@ export function EditorPage() {
 
 export function BlogPage() {
   return <Blog />;
+}
+
+export function CommentPage() {
+  return <CommentSection />;
 }
 

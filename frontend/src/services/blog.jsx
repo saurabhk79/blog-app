@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { config } from "../config";
 
-const selectToken = state => state.auth.token;
+const selectToken = (state) => state.auth.token;
 
 const blogApi = createApi({
   reducerPath: "blogApi",
@@ -9,11 +9,11 @@ const blogApi = createApi({
     baseUrl: config.API_BASE_URL + "/blog",
     prepareHeaders: (headers, { getState }) => {
       const token = selectToken(getState());
-      
+
       if (token) {
-        headers.set('Authorization', `Bearer ${token}`);
+        headers.set("Authorization", `Bearer ${token}`);
       }
-      
+
       return headers;
     },
   }),
@@ -48,6 +48,16 @@ const blogApi = createApi({
         method: "DELETE",
       }),
     }),
+    getComments: builder.query({
+      query: (id) => "/comment/" + id,
+    }),
+    addComment: builder.mutation({
+      query: ({ id, ...comment }) => ({
+        url: "/comment/" + id,
+        method: "POST",
+        body: comment,
+      }),
+    }),
   }),
 });
 
@@ -58,6 +68,8 @@ export const {
   useDeleteBlogMutation,
   useMakeBlogMutation,
   useUpdateBlogMutation,
+  useGetCommentsQuery,
+  useAddCommentMutation,
 } = blogApi;
 
 export default blogApi;
